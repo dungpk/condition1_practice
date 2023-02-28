@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>age student</title>
+</head>
+<body>
+<p><b>Bài 5 :</b>  Xếp hạng học lực của học sinh dựa trên các điểm bài kiểm tra, điểm thi giữa kỳ, điểm thi cuối kỳ.</p>
+<label for="diligent">diligent-mark:</label>
+<input type="text" size="10px" id="diligent">
+<label for="mid-term-mark">mid-term-mark:</label>
+<input type="text" size="10px" id="mid-term-mark">
+<label for="final-term-mark">final-term-mark:</label>
+<input type="text" size="10px" id="final-term-mark">
+<input type="button" value="Rank" onclick="calRank()">
+<p><i>Notes:</i> Formula : Rank = ((diligent-mark)*2 + (mid-term-mark)*2 + (final-term-mark)*6)/10 </p>
+<p id="result5"><br></p>
+<hr>
+
+<script>
+
+    function calRank() {
+        let diligentMark = parseInt(document.getElementById("diligent").value);
+        let midTermMark = parseInt(document.getElementById("mid-term-mark").value);
+        let finalTermMark = parseInt(document.getElementById("final-term-mark").value);
+        let res = document.getElementById("result5");
+        if (isNaN(diligentMark)||isNaN(midTermMark)||isNaN(finalTermMark)) {
+            res.innerHTML = "<b>Input must be a number</b>"
+        } else if ( diligentMark > 10 || diligentMark < 0
+            || midTermMark > 10 || midTermMark < 0
+            || finalTermMark > 10 || finalTermMark < 0 ) {
+            res.innerHTML = "<b>Input must be in 0 --> 10</b>"
+        } else {
+            let Rank = ((diligentMark)*2 + (midTermMark)*2 + (finalTermMark)*6)/10;
+            if ( Rank >= 8 ) {
+                res.innerHTML = "<b>Rank: Excellent. </b>"
+            } else if ( Rank < 8 && Rank >= 6.5) {
+                res.innerHTML = "<b>Rank: Good. </b>"
+            } else if ( Rank <6.5 && Rank >= 5) {
+                res.innerHTML = "<b>Rank: Average.</b>"
+            } else {
+                res.innerHTML = "<b>Rank: Weak.</b>"
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

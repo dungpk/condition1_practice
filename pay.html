@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>age student</title>
+</head>
+<body>
+<p><b>Bài 7 :</b> Tính cước điện thoại cho một hộ gia đình với các thông số đã cho.</p>
+<label for="tax">tax:</label>
+<input type="text" size="10px" id="tax">
+<label for="amountNum">Amount:</label>
+<input type="text" size="10px" id="amountNum">
+<input type="button" value="Pay" onclick="Pay()">
+<p id="result7"><br></p>
+<hr>
+
+<script>
+    function Pay() {
+        let tax = parseInt(document.getElementById("tax").value);
+        let amount = parseInt(document.getElementById("amountNum").value);
+        let res = document.getElementById("result7");
+        if (isNaN(tax)==true || isNaN(amount)==true) {
+            res.innerHTML = "<b>Input must be a number !</b>";
+        } else {
+            res.innerHTML = "<b>Total must be pay :</b>" + tax*amount +"$";
+        }
+    }
+
+</script>
+
+</body>
+</html>
